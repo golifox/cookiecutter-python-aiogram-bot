@@ -4,7 +4,7 @@ version = "{{cookiecutter.version}}"
 description = "{{cookiecutter.project_short_description}}"
 authors = ["{{cookiecutter.author}}"]
 readme = "README.md"
-packages = [{include = "{{cookiecutter"}]
+packages = [{include = "cookiecutter"}]
 
 
 [tool.poetry.dependencies]
