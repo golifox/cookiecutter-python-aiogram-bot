@@ -1,0 +1,15 @@
+{
+    "author": "David Golifox <golifox@yandex.ru>",
+    "project_name": "Telegram bot",
+    "admin_tg_id": "",
+    "repo_name": "tg_bot",
+    "bot_token": "input your telegram token",
+    "db_name": "",
+    "db_host": "localhost",
+    "db_user": "admin",
+    "db_password": "admin",
+    "project_short_description": "Refreshingly simple static bot generator.",
+    "release_date": "2022-12-22",
+    "year": "2022",
+    "version": "0.1.0"
+  }
