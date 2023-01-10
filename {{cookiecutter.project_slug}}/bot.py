@@ -34,18 +34,20 @@ async def main():
     logger.info('Starting bot...')
 
     # Getting all config into variable
-    config: Config = load_config(r'.\.env')
+    config: Config = load_config(r'{{ cookiecutter.dot_env_filename }}')
 
     # Initializing bot and dispatcher
     bot: Bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
     dp: Dispatcher = Dispatcher(bot=bot)
 
+    register_all_handlers(dp)
+    
     # Start polling
     try:
         # Uncomment if want skip all updates from bot.
-        #dp.skip_updates()
+        # dp.skip_updates()
         await dp.start_polling()
-    except:
+    except Exception:
         await bot.close()
 
 

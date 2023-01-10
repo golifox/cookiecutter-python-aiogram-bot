@@ -6,7 +6,7 @@
   "bot_token": "{{ uuid4() }}",
   "admin_tg_id": "{{ 123456789 }}",
   "database": "n",
-  "_if_database_y": {
+  "_if_database_y_": {
     "db_host": "localhost",
     "db_user": "admin",
     "db_password": "admin"
