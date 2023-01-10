@@ -1,14 +1,14 @@
 from dataclasses import dataclass
 from environs import Env
 
-
+{%- if cookiecutter.database == "y" %}
 @dataclass
 class DatabaseConfig:
     database: str         # Название базы данных
     db_host: str          # URL-адрес базы данных
     db_user: str          # Username пользователя базы данных
     db_password: str      # Пароль к базе данных
-
+{%- endif %}
 
 @dataclass
 class TgBot:
@@ -19,7 +19,9 @@ class TgBot:
 @dataclass
 class Config:
     tg_bot: TgBot
-    db: DatabaseConfig
+    {%- if cookiecutter.database == "y" %}
+        db: DatabaseConfig
+    {%- endif %}
 
 
 def load_config(path: str | None) -> Config:
@@ -27,8 +29,10 @@ def load_config(path: str | None) -> Config:
     env.read_env(path)
 
     return Config(tg_bot=TgBot(token=env('BOT_TOKEN'),
-                               admin_ids=list(map(int, env.list('ADMIN_IDS')))),
-                  db=DatabaseConfig(database=env('DATABASE'),
+                               admin_ids=list(map(int, env.list('ADMIN_IDS'))))
+                  {%- if cookiecutter.database == "y" %}
+                  ,db=DatabaseConfig(database=env('DATABASE'),
                                     db_host=env('DB_HOST'),
                                     db_user=env('DB_USER'),
-                                    db_password=env('DB_PASSWORD')))
+                                    db_password=env('DB_PASSWORD'))
+                  {%- endif %})

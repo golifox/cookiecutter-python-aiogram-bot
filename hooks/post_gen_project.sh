@@ -1,0 +1,1 @@
+rm {{ "Pipfile" if cookiecutter.packaging == "poetry" else "pyproject.toml" }}

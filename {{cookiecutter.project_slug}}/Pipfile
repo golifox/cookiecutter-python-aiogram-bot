@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytest = "*"
+flake8 = "*"
+black = "*"
+aiogram = "*"
+environs = "*"
+
+[dev-packages]
+pytest = "*"
+flake8 = "*"
+black = "*"
+aiogram = "*"
+environs = "*"
+
+[requires]
+python_version = "{{cookiecutter.python_version}}"

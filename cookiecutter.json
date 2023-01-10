@@ -1,15 +1,22 @@
 {
-    "author": "David Golifox <golifox@yandex.ru>",
-    "project_name": "Telegram bot",
-    "admin_tg_id": "",
-    "repo_name": "tg_bot",
-    "bot_token": "input your telegram token",
-    "db_name": "",
+  "author": "David Golifox",
+  "project_name": "Telegram bot",
+  "project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '_')}}",
+  "package_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-','_')}}",
+  "bot_token": "{{ uuid4() }}",
+  "admin_tg_id": "{{ 123456789 }}",
+  "database": "n",
+  "_if_database_y": {
     "db_host": "localhost",
     "db_user": "admin",
-    "db_password": "admin",
-    "project_short_description": "Refreshingly simple static bot generator.",
-    "release_date": "2022-12-22",
-    "year": "2022",
-    "version": "0.1.0"
-  }
+    "db_password": "admin"
+  },
+  "packaging": ["pipenv","poetry"],
+  "project_short_description": "Refreshingly simple static bot generator.",
+  "release_date": "{% now 'utc', '%d-%m-%Y' %}",
+  "year": "{% now 'utc', '%Y' %}",
+  "version": "0.1.0",
+  "python_version": ["3.11","3.8","3.9","3.10"],
+  "license": ["MIT", "BSD-3-Clause", "GPL-3.0-only", "Apache-2.0"],
+  "dot_env_filename": ".env"
+}

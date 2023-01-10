@@ -120,7 +120,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+{{ cookiecutter.dot_env_filename }}
 .venv
 env/
 venv/

@@ -1,3 +1,7 @@
+'''
+Main project file. Entry point.
+'''
+
 import asyncio
 import logging
 
@@ -7,12 +11,13 @@ from config_data.config import Config, load_config
 from handlers.user_handlers import register_user_handlers
 
 
+__version__ = "{{ cookiecutter.version }}"
+
 # Initialize logger
 logger = logging.getLogger(__name__)
 
+
 # Registering all handlers
-
-
 def register_all_handlers(dp: Dispatcher) -> None:
     register_user_handlers(dp)
 
@@ -29,7 +34,7 @@ async def main():
     logger.info('Starting bot...')
 
     # Getting all config into variable
-    config: Config = load_config()
+    config: Config = load_config(r'.\.env')
 
     # Initializing bot and dispatcher
     bot: Bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
